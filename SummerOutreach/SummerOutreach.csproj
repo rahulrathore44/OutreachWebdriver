@@ -38,6 +38,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="WebDriver, Version=2.48.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Selenium.WebDriver.2.48.2\lib\net40\WebDriver.dll</HintPath>
       <Private>True</Private>
@@ -61,20 +62,38 @@
   </Choose>
   <ItemGroup>
     <Compile Include="BaseClasses\InitializeWebDriver.cs" />
+    <Compile Include="BaseClasses\PageBase.cs" />
+    <Compile Include="ComponentHelper\CalenderHelper.cs" />
+    <Compile Include="ComponentHelper\DropDownHelper.cs" />
     <Compile Include="ComponentHelper\GenericHelper.cs" />
+    <Compile Include="ComponentHelper\JavaScriptExecutorHelper.cs" />
+    <Compile Include="ComponentHelper\ValidationHelper.cs" />
     <Compile Include="Configuration\AppConfigReader.cs" />
     <Compile Include="Configuration\BrowserType.cs" />
     <Compile Include="CustomException\NoSutiableDriverFound.cs" />
+    <Compile Include="ExtensionClass\JavaScriptExtensionClass.cs" />
+    <Compile Include="ExtensionClass\ScreenShotExtensionClass.cs" />
     <Compile Include="Interfaces\IConfig.cs" />
+    <Compile Include="Interfaces\IPage.cs" />
+    <Compile Include="PageObject\LoginPage\DetailPages\PersonalPageClass.cs" />
+    <Compile Include="PageObject\LoginPage\LoginPageClass.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Settings\AppConfigKeys.cs" />
     <Compile Include="Settings\ObjectRepository.cs" />
     <Compile Include="TestCases\PersonalPage\TestPersonalPage.cs" />
-    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\packages\PhantomJS.2.0.0\tools\phantomjs\phantomjs.exe">
@@ -94,8 +113,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ExtensionClass\" />
-    <Folder Include="PageObject\" />
     <Folder Include="TestCases\DemographicPage\" />
   </ItemGroup>
   <Choose>

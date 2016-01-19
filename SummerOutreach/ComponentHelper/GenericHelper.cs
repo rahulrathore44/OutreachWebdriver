@@ -39,7 +39,7 @@ namespace SummerOutreach.ComponentHelper
                 var wait = GetWebDriverWait(60);
                 return wait.Until((CheckForElement(locator)));
             }
-            catch (TimeoutException e)
+            catch (TimeoutException )
             {
                 return false;
             }
@@ -54,7 +54,7 @@ namespace SummerOutreach.ComponentHelper
                     return true;
                 return false;
             }
-            catch (Exception e)
+            catch (Exception )
             {
                 return false;
             }
@@ -65,6 +65,11 @@ namespace SummerOutreach.ComponentHelper
             if (IsElementPresent(locator))
                 return ObjectRepository.Driver.FindElement(locator);
             throw new NoSuchElementException("Element Not Found : " + locator.ToString());
+        }
+
+        public static IReadOnlyCollection<IWebElement> GetElements(By locator)
+        {
+            return ObjectRepository.Driver.FindElements(locator);
         }
 
         public static IWebElement GetVisiblityOfElement(By locator)
