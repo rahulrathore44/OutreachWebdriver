@@ -18,7 +18,7 @@ namespace SummerOutreach.TestCases.PersonalPage
     {
 
         [TestMethod]
-        public void TestPositive1()
+        public void TestPositive()
         {
             var lPage = new LoginPageClass(ObjectRepository.Driver);
             var dPage = lPage.LoginInApplication();
@@ -47,7 +47,7 @@ namespace SummerOutreach.TestCases.PersonalPage
         }
 
         [TestMethod]
-        public void TestPositive2()
+        public void TestNegative()
         {
             var lPage = new LoginPageClass(ObjectRepository.Driver);
             var dPage = lPage.LoginInApplication();
