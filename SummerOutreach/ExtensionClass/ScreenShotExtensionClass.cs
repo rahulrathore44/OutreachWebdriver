@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SummerOutreach.ComponentHelper;
+using Common.Helpers.ComponentHelper;
+
 using SummerOutreach.Interfaces;
 
 namespace SummerOutreach.ExtensionClass

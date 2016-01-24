@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SummerOutreach.Configuration
+namespace Common.Helpers.Configuration
 {
     public enum BrowserType
     {

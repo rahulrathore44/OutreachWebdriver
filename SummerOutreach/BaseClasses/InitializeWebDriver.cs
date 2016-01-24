@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Common.Helpers.ComponentHelper;
+using Common.Helpers.Configuration;
+using Common.Helpers.CustomException;
+using Common.Helpers.Settings;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
 using OpenQA.Selenium.PhantomJS;
-using SummerOutreach.ComponentHelper;
-using SummerOutreach.Configuration;
-using SummerOutreach.CustomException;
-using SummerOutreach.Settings;
+
 
 namespace SummerOutreach.BaseClasses
 {

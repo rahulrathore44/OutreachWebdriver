@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Common.Helpers.ComponentHelper;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using SummerOutreach.BaseClasses;
-using SummerOutreach.ComponentHelper;
+
 using SummerOutreach.ExtensionClass;
 
 namespace SummerOutreach.PageObject.LoginPage.DetailPages

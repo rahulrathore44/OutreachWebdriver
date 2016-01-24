@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Common.Helpers.ComponentHelper;
+using Common.Helpers.Settings;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using SummerOutreach.BaseClasses;
-using SummerOutreach.ComponentHelper;
+
 using SummerOutreach.ExtensionClass;
 using SummerOutreach.PageObject.LoginPage.DetailPages;
-using SummerOutreach.Settings;
+
 
 namespace SummerOutreach.PageObject.LoginPage
 {
@@ -35,12 +37,15 @@ namespace SummerOutreach.PageObject.LoginPage
         [FindsBy(How = How.XPath, Using = "//a[contains(.,'New application')]")]
         public IWebElement NewApplication { get; set; }
 
+
+
         public PersonalPageClass LoginInApplication()
         {
+            LogoutFromApplication();
             UserName.SendKeys(ObjectRepository.Config.GetUsername());
             Password.SendKeys(ObjectRepository.Config.GetPassword());
             LoginBtn.Click();
-            if (GenericHelper.IsElementPresentQuick(By.XPath("//a[contains(.,'New application')]")))
+            if (GenericHelper.IsElementPresentQuick(GetLocatorOfWebElement("NewApplication")))
             {
                 NewApplication.Click();
             }

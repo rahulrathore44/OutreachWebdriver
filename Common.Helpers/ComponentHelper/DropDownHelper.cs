@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
-namespace SummerOutreach.ComponentHelper
+
+namespace Common.Helpers.ComponentHelper
 {
     public class DropDownHelper
     {

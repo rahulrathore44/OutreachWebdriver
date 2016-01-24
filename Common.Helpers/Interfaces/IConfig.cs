@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SummerOutreach.Configuration;
+using Common.Helpers.Configuration;
 
-namespace SummerOutreach.Interfaces
+namespace Common.Helpers.Interfaces
 {
     public interface IConfig
     {

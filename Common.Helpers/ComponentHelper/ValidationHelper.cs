@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Common.Helpers.ComponentHelper;
 using OpenQA.Selenium;
 
-namespace SummerOutreach.ComponentHelper
+namespace Common.Helpers.ComponentHelper
 {
     public class ValidationHelper
     {

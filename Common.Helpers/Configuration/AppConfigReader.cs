@@ -4,10 +4,12 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SummerOutreach.Interfaces;
-using SummerOutreach.Settings;
+using Common.Helpers.Interfaces;
+using Common.Helpers.Settings;
 
-namespace SummerOutreach.Configuration
+
+
+namespace Common.Helpers.Configuration
 {
     public class AppConfigReader : IConfig
     {

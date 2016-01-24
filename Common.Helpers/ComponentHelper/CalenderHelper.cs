@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Common.Helpers.Settings;
 using OpenQA.Selenium;
-using SummerOutreach.Settings;
 
-namespace SummerOutreach.ComponentHelper
+
+namespace Common.Helpers.ComponentHelper
 {
     public class CalenderHelper
     {
