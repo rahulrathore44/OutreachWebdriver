@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Common.Helpers.ComponentHelper;
+using Common.Helpers.ExtensionClass;
 using Common.Helpers.Settings;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
-using SummerOutreach.ExtensionClass;
 using SummerOutreach.PageObject.LoginPage;
 
 

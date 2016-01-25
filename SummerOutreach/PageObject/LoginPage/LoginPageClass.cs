@@ -8,8 +8,6 @@ using Common.Helpers.Settings;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using SummerOutreach.BaseClasses;
-
-using SummerOutreach.ExtensionClass;
 using SummerOutreach.PageObject.LoginPage.DetailPages;
 
 

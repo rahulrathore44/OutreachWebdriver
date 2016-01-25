@@ -8,7 +8,7 @@ using Common.Helpers.ComponentHelper;
 using OpenQA.Selenium;
 
 
-namespace SummerOutreach.ExtensionClass
+namespace Common.Helpers.ExtensionClass
 {
     public static class JavaScriptExtensionClass
     {

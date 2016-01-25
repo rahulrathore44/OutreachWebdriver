@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Common.Helpers.ComponentHelper;
+using Common.Helpers.ExtensionClass;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using SummerOutreach.BaseClasses;
-
-using SummerOutreach.ExtensionClass;
 
 namespace SummerOutreach.PageObject.LoginPage.DetailPages
 {

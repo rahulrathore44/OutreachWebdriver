@@ -5,28 +5,46 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Common.Helpers.ComponentHelper;
+using Common.Helpers.ExtensionClass;
+using Common.Helpers.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
-using SummerOutreach.ExtensionClass;
-using SummerOutreach.Interfaces;
 using SummerOutreach.PageObject.LoginPage;
 
 namespace SummerOutreach.BaseClasses
 {
     public class PageBase : IPage
     {
-       protected PageBase(IWebDriver driver)
+        #region Constructor
+
+        protected PageBase(IWebDriver driver)
         {
             if (driver == null)
             {
                 throw new ArgumentNullException(nameof(driver));
             }
-            PageFactory.InitElements(driver,this);
+            PageFactory.InitElements(driver, this);
             Driver = driver;
         }
 
-        [FindsBy(How = How.XPath,Using = "//li[@id='logout']/a")]
+        #endregion
+
+
+        #region Fields
+
+        private const string logout = "//li[@id='logout']/a";
+
+        #endregion
+
+
+        #region Webelements
+
+        [FindsBy(How = How.XPath, Using = logout)]
         private IWebElement Logout { get; set; }
+
+        #endregion
+
+        #region Property
 
         public IWebDriver Driver { get; private set; }
 
@@ -35,9 +53,15 @@ namespace SummerOutreach.BaseClasses
             get { return Driver.Title; }
         }
 
-        #region Protected
+      
 
-        protected By GetElementLocator(How locator, string locatorValue)
+        #endregion
+
+
+        #region Public
+
+
+        public By GetElementLocator(How locator, string locatorValue)
         {
             switch (locator)
             {
@@ -58,7 +82,7 @@ namespace SummerOutreach.BaseClasses
             }
         }
 
-        protected By GetLocatorOfWebElement(string elementName)
+        public By GetLocatorOfWebElement(string elementName)
         {
             var T = GetClassType();
             var field = T.GetProperty(elementName, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
@@ -66,13 +90,6 @@ namespace SummerOutreach.BaseClasses
             var ele = (FindsByAttribute)cusAttri;
             return GetElementLocator(ele.How, ele.Using);
         }
-
-
-        #endregion
-
-
-
-        #region Public
 
         public virtual Type GetClassType()
         {
@@ -82,7 +99,7 @@ namespace SummerOutreach.BaseClasses
         public virtual LoginPageClass LogoutFromApplication()
         {
             var lPage = new LoginPageClass(Driver);
-            if (GenericHelper.IsElementPresentQuick(By.XPath("//li[@id='logout']/a")))
+            if (GenericHelper.IsElementPresentQuick(By.XPath(logout)))
             {
                 Logout.ScrollToElementAndClick();
                 GenericHelper.WaitForElement(lPage.LoginBtn);

@@ -63,9 +63,6 @@
   <ItemGroup>
     <Compile Include="BaseClasses\InitializeWebDriver.cs" />
     <Compile Include="BaseClasses\PageBase.cs" />
-    <Compile Include="ExtensionClass\JavaScriptExtensionClass.cs" />
-    <Compile Include="ExtensionClass\ScreenShotExtensionClass.cs" />
-    <Compile Include="Interfaces\IPage.cs" />
     <Compile Include="PageObject\LoginPage\DetailPages\PersonalPageClass.cs" />
     <Compile Include="PageObject\LoginPage\LoginPageClass.cs" />
     <Compile Include="Properties\Settings.Designer.cs">

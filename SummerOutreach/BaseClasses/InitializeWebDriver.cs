@@ -31,6 +31,7 @@ namespace SummerOutreach.BaseClasses
         {
             ChromeOptions option = new ChromeOptions();
             option.AddArgument("start-maximized");
+            option.AddExtension(@"C:\Users\rsr\Downloads\GoogleAnalytics.crx");
             option.Proxy = null;
             return option;
         }

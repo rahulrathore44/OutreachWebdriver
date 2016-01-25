@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 
-namespace SummerOutreach.Interfaces
+namespace Common.Helpers.Interfaces
 {
     public interface IPage
     {
-        IWebDriver Driver { get;}
+        IWebDriver Driver { get; }
 
         string Title { get; }
 

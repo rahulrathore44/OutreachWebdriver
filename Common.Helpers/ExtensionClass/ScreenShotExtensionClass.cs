@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Common.Helpers.ComponentHelper;
+using Common.Helpers.Interfaces;
 
-using SummerOutreach.Interfaces;
 
-namespace SummerOutreach.ExtensionClass
+namespace Common.Helpers.ExtensionClass
 {
     public static class ScreenShotExtensionClass
     {
