@@ -14,6 +14,23 @@ namespace Common.Helpers.ComponentHelper
 {
     public class GenericHelper
     {
+        #region Field
+
+        private static string MaskXpath = "//span[text()='Loading...']";
+
+        #endregion
+
+        #region Private
+
+        private static Func<IWebDriver, bool> MaskPresence()
+        {
+            return ((x) =>
+            {
+                if (x.FindElements((By.XPath(MaskXpath))).Any())
+                    return true;
+                return false;
+            });
+        }
 
         private static Func<IWebDriver, bool> CheckForElement(By locator)
         {
@@ -24,6 +41,21 @@ namespace Common.Helpers.ComponentHelper
                 return false;
             });
         }
+
+        #endregion
+
+
+        #region Public
+
+        public static void WaitForLoadingMask()
+        {
+            ObjectRepository.Driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(1));
+            var wait = GetWebDriverWait(60);
+            wait.Until(MaskPresence());
+            ObjectRepository.Driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(ObjectRepository.Config.GetElementLoadTimeOut()));
+        }
+
+      
 
         public static WebDriverWait GetWebDriverWait(int timeOutInSeconds)
         {
@@ -161,5 +193,7 @@ namespace Common.Helpers.ComponentHelper
             var src = ObjectRepository.Driver.TakeScreenshot();
             src.SaveAsFile(name, ImageFormat.Jpeg);
         }
+
+        #endregion
     }
 }

@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{967305F0-B41B-4EA7-80A1-CD7E774B3D05}</ProjectGuid>
+    <ProjectGuid>{4921D885-85E6-4CF2-9AC6-BE434D16382C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Common.Helpers</RootNamespace>
-    <AssemblyName>Common.Helpers</AssemblyName>
+    <RootNamespace>CFM.Registration</RootNamespace>
+    <AssemblyName>CFM.Registration</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -35,29 +35,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EPPlus, Version=4.0.5.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPPlus.4.0.5\lib\net20\EPPlus.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Excel, Version=2.1.2.3, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
-      <HintPath>..\packages\ExcelDataReader.2.1.2.3\lib\net45\Excel.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
-      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.configuration" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.XML" />
-    <Reference Include="WebDriver, Version=2.49.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Selenium.WebDriver.2.49.0\lib\net40\WebDriver.dll</HintPath>
+    <Reference Include="WebDriver, Version=2.48.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.2.48.2\lib\net40\WebDriver.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="WebDriver.Support, Version=2.49.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Selenium.Support.2.49.0\lib\net40\WebDriver.Support.dll</HintPath>
+    <Reference Include="WebDriver.Support, Version=2.48.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.Support.2.48.2\lib\net40\WebDriver.Support.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -74,28 +59,43 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="ComponentHelper\ButtonHelper.cs" />
-    <Compile Include="ComponentHelper\CalenderHelper.cs" />
-    <Compile Include="ComponentHelper\DropDownHelper.cs" />
-    <Compile Include="ComponentHelper\GenericHelper.cs" />
-    <Compile Include="ComponentHelper\JavaScriptExecutorHelper.cs" />
-    <Compile Include="ComponentHelper\TextBoxHelper.cs" />
-    <Compile Include="ComponentHelper\ValidationHelper.cs" />
-    <Compile Include="Configuration\AppConfigReader.cs" />
-    <Compile Include="Configuration\BrowserType.cs" />
-    <Compile Include="CustomException\NoSutiableDriverFound.cs" />
-    <Compile Include="ExcelHelpers\DataEngine.cs" />
-    <Compile Include="ExcelHelpers\ExcelReaderHelper.cs" />
-    <Compile Include="ExtensionClass\JavaScriptExtensionClass.cs" />
-    <Compile Include="ExtensionClass\ScreenShotExtensionClass.cs" />
-    <Compile Include="Interfaces\IConfig.cs" />
-    <Compile Include="Interfaces\IPage.cs" />
+    <Compile Include="BaseClasses\HeaderBasePage\HeaderPageClass.cs" />
+    <Compile Include="BaseClasses\InitializeWebDriver.cs" />
+    <Compile Include="BaseClasses\PageBase.cs" />
+    <Compile Include="PageObject\LoginPage\LoginPageClass.cs" />
+    <Compile Include="PageObject\ManageProgramDates\ManagePrgDatesClass.cs" />
+    <Compile Include="PageObject\SearchPage\SearchPageClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Settings\AppConfigKeys.cs" />
-    <Compile Include="Settings\ObjectRepository.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="TestCases\ManagePrgDates\TestManagePrgDates.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common.Helpers\Common.Helpers.csproj">
+      <Project>{967305f0-b41b-4ea7-80a1-cd7e774b3d05}</Project>
+      <Name>Common.Helpers</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\packages\Selenium.WebDriver.ChromeDriver.2.20.0.0\driver\chromedriver.exe">
+      <Link>chromedriver.exe</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\packages\Selenium.WebDriver.IEDriver.2.48.0.0\driver\IEDriverServer.exe">
+      <Link>IEDriverServer.exe</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup />
   <Choose>

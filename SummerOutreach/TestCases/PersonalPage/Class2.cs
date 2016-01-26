@@ -12,8 +12,9 @@ using SummerOutreach.PageObject.LoginPage.DetailPages;
 namespace SummerOutreach.TestCases.PersonalPage
 {
     [TestClass]
-    public class Class2
+    public class Class2 
     {
+        [Ignore]
         [TestMethod]
         public void TestExcel()
         {
