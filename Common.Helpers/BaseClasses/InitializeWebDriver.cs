@@ -15,7 +15,7 @@ using OpenQA.Selenium.IE;
 using OpenQA.Selenium.PhantomJS;
 
 
-namespace CFM.Registration.BaseClasses
+namespace Common.Helpers.BaseClasses
 {
     [TestClass]
     public class InitializeWebDriver
@@ -24,15 +24,14 @@ namespace CFM.Registration.BaseClasses
         private static FirefoxProfile GetFirefoxptions()
         {
             FirefoxProfile profile = new FirefoxProfile();
-            FirefoxProfileManager manager = new FirefoxProfileManager();
-            profile.AddExtension(@"C:\downloads\FirefoxGoogleAnalytics.xpi");
+            //profile.AddExtension(@"C:\downloads\FirefoxGoogleAnalytics.xpi");
             return profile;
         }
         private static ChromeOptions GetChromeOptions()
         {
             ChromeOptions option = new ChromeOptions();
             option.AddArgument("start-maximized");
-            option.AddExtension(@"C:\downloads\GoogleAnalytics.crx");
+            //option.AddExtension(@"C:\downloads\GoogleAnalytics.crx");
             option.Proxy = null;
             return option;
         }
@@ -89,8 +88,8 @@ namespace CFM.Registration.BaseClasses
         }
 
 
-        [AssemblyInitialize]
-        public static void InitWebdriver(TestContext tc)
+        [TestInitialize]
+        public void InitWebdriver()
         {
             ObjectRepository.Config = new AppConfigReader();
 
@@ -131,8 +130,8 @@ namespace CFM.Registration.BaseClasses
         }
 
 
-        [AssemblyCleanup]
-        public static void TearDown()
+        [TestCleanup]
+        public void TearDown()
         {
 
             if (ObjectRepository.Driver != null)

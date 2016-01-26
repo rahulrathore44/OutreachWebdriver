@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using CFM.Registration.PageObject.LoginPage;
+using Common.Helpers.BaseClasses;
 using Common.Helpers.Settings;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CFM.Registration.TestCases.ManagePrgDates
 {
     [TestClass]
-    public class TestManagePrgDates
+    public class TestManagePrgDates : InitializeWebDriver
     {
         [TestMethod]
         public void TestManageDates()

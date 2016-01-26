@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Common.Helpers.BaseClasses;
 using Common.Helpers.ExcelHelpers;
 using Common.Helpers.Settings;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -12,9 +13,9 @@ using SummerOutreach.PageObject.LoginPage.DetailPages;
 namespace SummerOutreach.TestCases.PersonalPage
 {
     [TestClass]
-    public class Class2 
+    public class Class2 : InitializeWebDriver
     {
-        [Ignore]
+       // [Ignore]
         [TestMethod]
         public void TestExcel()
         {

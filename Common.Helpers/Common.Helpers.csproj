@@ -74,6 +74,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="BaseClasses\InitializeWebDriver.cs" />
     <Compile Include="ComponentHelper\ButtonHelper.cs" />
     <Compile Include="ComponentHelper\CalenderHelper.cs" />
     <Compile Include="ComponentHelper\DropDownHelper.cs" />

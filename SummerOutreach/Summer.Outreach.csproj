@@ -61,7 +61,6 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="BaseClasses\InitializeWebDriver.cs" />
     <Compile Include="BaseClasses\PageBase.cs" />
     <Compile Include="PageObject\LoginPage\DetailPages\PersonalPageClass.cs" />
     <Compile Include="PageObject\LoginPage\LoginPageClass.cs" />
@@ -83,19 +82,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\packages\PhantomJS.2.0.0\tools\phantomjs\phantomjs.exe">
-      <Link>phantomjs.exe</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\packages\Selenium.WebDriver.ChromeDriver.2.20.0.0\driver\chromedriver.exe">
       <Link>chromedriver.exe</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\packages\Selenium.WebDriver.IEDriver.2.48.0.0\driver\IEDriverServer.exe">
       <Link>IEDriverServer.exe</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="phantomjs-license.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
