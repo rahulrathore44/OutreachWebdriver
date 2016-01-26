@@ -49,5 +49,6 @@ namespace SummerOutreach.PageObject.LoginPage
             }
             return new PersonalPageClass(Driver);
         }
+
     }
 }

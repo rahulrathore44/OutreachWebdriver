@@ -59,19 +59,11 @@ namespace Common.Helpers.ExcelHelpers
             return reader.Cells.Count();
         }
 
-        //public static DataTable GetDataTable(string xlPath, string sheetName)
-        //{
-        //    var reader = GetExcelReader(xlPath, sheetName);
-        //    return reader.AsDataSet().Tables[sheetName];
-        //}
-
-        //public static T GetCellValue<T>(string xlPath, string sheetName,int row ,int column) 
-        //{
-        //    var dataTable = GetDataTable(xlPath, sheetName);
-        //    var datareader = dataTable.CreateDataReader();
-        //    return "";
-
-        //}
+        public static string GetCellValue(string xlPath, string sheetName, int row, int column)
+        {
+            var reader = GetExcelReader(xlPath, sheetName);
+            return reader.Cells[row, column].Text;
+        }
 
         #endregion
 

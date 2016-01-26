@@ -75,14 +75,17 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="ComponentHelper\ButtonHelper.cs" />
     <Compile Include="ComponentHelper\CalenderHelper.cs" />
     <Compile Include="ComponentHelper\DropDownHelper.cs" />
     <Compile Include="ComponentHelper\GenericHelper.cs" />
     <Compile Include="ComponentHelper\JavaScriptExecutorHelper.cs" />
+    <Compile Include="ComponentHelper\TextBoxHelper.cs" />
     <Compile Include="ComponentHelper\ValidationHelper.cs" />
     <Compile Include="Configuration\AppConfigReader.cs" />
     <Compile Include="Configuration\BrowserType.cs" />
     <Compile Include="CustomException\NoSutiableDriverFound.cs" />
+    <Compile Include="ExcelHelpers\DataEngine.cs" />
     <Compile Include="ExcelHelpers\ExcelReaderHelper.cs" />
     <Compile Include="ExtensionClass\JavaScriptExtensionClass.cs" />
     <Compile Include="ExtensionClass\ScreenShotExtensionClass.cs" />

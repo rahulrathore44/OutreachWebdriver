@@ -13,5 +13,6 @@ namespace Common.Helpers.Interfaces
 
         string Title { get; }
 
+        By GetLocatorOfWebElement(string elementName);
     }
 }

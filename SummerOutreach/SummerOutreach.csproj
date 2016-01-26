@@ -70,6 +70,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="TestCases\PersonalPage\Class2.cs" />
     <Compile Include="TestCases\PersonalPage\TestPersonalPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

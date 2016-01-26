@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Common.Helpers.ExcelHelpers;
 using Excel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -16,17 +17,8 @@ namespace Common.Helpers
         [TestMethod]
         public void TestExcel()
         {
-            var stream = new FileStream(@"C:\Keyword\Book1.xlsx", FileMode.Open, FileAccess.Read);
-            var reader = ExcelReaderFactory.CreateOpenXmlReader(stream);
-            DataTable table = reader.AsDataSet().Tables["Sheet1"];
-            var t = table.CreateDataReader();
-            for (int i = 0; i < 3; i++)
-            {
-                Console.WriteLine("DataType : " + t.GetDataTypeName(i));
-            }
-
-            stream.Close();
-            reader.Close();
+            string path = @"C:\downloads\ExcelData.xlsx";
+            string sheetName = "Sheet1";
         }
     }
 }

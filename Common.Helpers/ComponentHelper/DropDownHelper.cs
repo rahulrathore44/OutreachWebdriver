@@ -12,18 +12,18 @@ namespace Common.Helpers.ComponentHelper
 {
     public class DropDownHelper
     {
-        private static SelectElement select;
+        private static SelectElement _select;
 
         public static void SelectByVisibleText(By locator, string text)
         {
-            select = new SelectElement(GenericHelper.GetElement(locator));
-            select.SelectByText(text);
+            _select = new SelectElement(GenericHelper.GetElement(locator));
+            _select.SelectByText(text);
         }
 
         public static void SelectByVisibleText(IWebElement element, string text)
         {
-            select = new SelectElement(element);
-            select.SelectByText(text);
+            _select = new SelectElement(element);
+            _select.SelectByText(text);
         }
         
     }
