@@ -26,7 +26,18 @@ namespace Common.Helpers.ComponentHelper
         {
             return "//li[text()='" + value + "']";
         }
+
         #endregion
+
+        #region Public
+
+        public static IList<IWebElement> GetAllOptions(IWebElement element)
+        {
+            _select = new SelectElement(element);
+            return _select.Options;
+        }
+
+      
 
         public static void SelectByVisibleText(By locator, string text)
         {
@@ -49,5 +60,23 @@ namespace Common.Helpers.ComponentHelper
             list.Click();
             Thread.Sleep(1000);
         }
+
+        public static bool VerifyInOptions(IWebElement element, string text)
+        {
+            var list = GetAllOptions(element);
+            foreach (var ele in list)
+            {
+                Console.WriteLine(ele.Text);
+            }
+            var result = list.FirstOrDefault((x) => x.Text.Contains(text));
+            return (result != null);
+        }
+
+        public static void WaitForToLoad(IWebElement element, TimeSpan? timeout = null)
+        {
+            var list = GetAllOptions(element);
+        }
+
+        #endregion
     }
 }

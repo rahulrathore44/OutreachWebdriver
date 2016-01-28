@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="BaseClasses\HeaderBasePage\HeaderPageClass.cs" />
     <Compile Include="BaseClasses\PageBase.cs" />
+    <Compile Include="PageObject\HomePage\HomePageClass.cs" />
     <Compile Include="PageObject\LoginPage\LoginPageClass.cs" />
     <Compile Include="PageObject\ManageProgramDates\ManagePrgDatesClass.cs" />
     <Compile Include="PageObject\SearchPage\SearchPageClass.cs" />

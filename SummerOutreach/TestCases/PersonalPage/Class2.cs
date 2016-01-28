@@ -7,8 +7,8 @@ using Common.Helpers.BaseClasses;
 using Common.Helpers.ExcelHelpers;
 using Common.Helpers.Settings;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SummerOutreach.PageObject.DetailPages;
 using SummerOutreach.PageObject.LoginPage;
-using SummerOutreach.PageObject.LoginPage.DetailPages;
 
 namespace SummerOutreach.TestCases.PersonalPage
 {

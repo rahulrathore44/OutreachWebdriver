@@ -28,6 +28,17 @@ namespace Common.Helpers.ComponentHelper
             element.SendKeys(text);
         }
 
+        public static void ClearTextBox(By locator)
+        {
+            _element = GenericHelper.GetElement(locator);
+            _element.Clear();
+        }
+
+        public static void ClearTextBox(IWebElement element)
+        {
+            element.Clear();
+        }
+
         #endregion
 
 

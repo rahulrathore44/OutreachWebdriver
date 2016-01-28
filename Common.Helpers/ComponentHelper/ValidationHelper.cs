@@ -14,5 +14,12 @@ namespace Common.Helpers.ComponentHelper
         {
             return GenericHelper.GetElements(By.XPath("//li[contains(.,'" + message + "')]")).Count > 0;
         }
+
+        //legend[text()='Demographic Information']
+
+        public static bool IsPageTitlePresent(string title)
+        {
+            return GenericHelper.GetElements(By.XPath("//legend[contains(.,'" + title + "')]")).Count > 0;
+        }
     }
 }

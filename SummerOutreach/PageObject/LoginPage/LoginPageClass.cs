@@ -8,7 +8,8 @@ using Common.Helpers.Settings;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using SummerOutreach.BaseClasses;
-using SummerOutreach.PageObject.LoginPage.DetailPages;
+using SummerOutreach.PageObject.DetailPages;
+using SummerOutreach.PageObject.MyApplication;
 
 
 namespace SummerOutreach.PageObject.LoginPage
@@ -26,29 +27,57 @@ namespace SummerOutreach.PageObject.LoginPage
        [FindsBy(How = How.Id, Using = "Password")]
        public IWebElement Password { get; set; }
 
+        [FindsBy(How = How.Id, Using = "ConfirmPassword")]
+        public IWebElement ConfirmPassword { get; set; }
+
         [FindsBy(How = How.XPath, Using = "//button[contains(.,'Submit')]")]
         public IWebElement LoginBtn { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//a[contains(.,'Create an account')]")]
         public IWebElement CreatAccLink { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "//a[contains(.,'New application')]")]
-        public IWebElement NewApplication { get; set; }
-
-
-
-        public PersonalPageClass LoginInApplication()
+        public MyApplicationPageClass LoginInApplication(string username = null, string password = null)
         {
             LogoutFromApplication();
-            UserName.SendKeys(ObjectRepository.Config.GetUsername());
-            Password.SendKeys(ObjectRepository.Config.GetPassword());
+            if (username == null)
+                UserName.SendKeys(ObjectRepository.Config.GetUsername());
+            else
+                UserName.SendKeys(username);
+
+            if (password == null)
+                Password.SendKeys(ObjectRepository.Config.GetPassword());
+            else
+                Password.SendKeys(password);
+            
             LoginBtn.Click();
-            if (GenericHelper.IsElementPresentQuick(GetLocatorOfWebElement("NewApplication")))
+            return new  MyApplicationPageClass(Driver);
+        }
+
+        public PersonalPageClass CreateNewAccount(string username = null, string password = null)
+        {
+            LogoutFromApplication();
+            CreatAccLink.Click();
+
+            if (username == null)
+                UserName.SendKeys(ObjectRepository.Config.GetUsername());
+            else
+                UserName.SendKeys(username);
+
+            if (password == null)
             {
-                NewApplication.Click();
+                Password.SendKeys(ObjectRepository.Config.GetPassword());
+                ConfirmPassword.SendKeys(ObjectRepository.Config.GetPassword());
             }
+            else
+            {
+                Password.SendKeys(password);
+                ConfirmPassword.SendKeys(password);
+            }
+
+            LoginBtn.Click();
             return new PersonalPageClass(Driver);
         }
+
 
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using CFM.Registration.PageObject.HomePage;
 using Common.Helpers.ComponentHelper;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
@@ -39,7 +40,7 @@ namespace CFM.Registration.BaseClasses.HeaderBasePage
 
         #region Public
 
-        public virtual void Logout()
+        public virtual HomePageClass Logout()
         {
             if (GenericHelper.IsElementPresentQuick(GetLocatorOfWebElement("LogOff")))
             {
@@ -47,6 +48,7 @@ namespace CFM.Registration.BaseClasses.HeaderBasePage
                 GenericHelper.WaitForElement(By.XPath("//a[contains(.,'Login')]"));
                 Thread.Sleep(1000);
             }
+            return new HomePageClass(Driver);
         }
 
         #endregion

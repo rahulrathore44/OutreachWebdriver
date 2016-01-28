@@ -24,14 +24,14 @@ namespace Common.Helpers.BaseClasses
         private static FirefoxProfile GetFirefoxptions()
         {
             FirefoxProfile profile = new FirefoxProfile();
-            //profile.AddExtension(@"C:\downloads\FirefoxGoogleAnalytics.xpi");
+            profile.AddExtension(@"C:\downloads\FirefoxGoogleAnalytics.xpi");
             return profile;
         }
         private static ChromeOptions GetChromeOptions()
         {
             ChromeOptions option = new ChromeOptions();
             option.AddArgument("start-maximized");
-            //option.AddExtension(@"C:\downloads\GoogleAnalytics.crx");
+            option.AddExtension(@"C:\downloads\GoogleAnalytics.crx");
             option.Proxy = null;
             return option;
         }

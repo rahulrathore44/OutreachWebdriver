@@ -42,6 +42,12 @@ namespace SummerOutreach.BaseClasses
         [FindsBy(How = How.XPath, Using = logout)]
         private IWebElement Logout { get; set; }
 
+        [FindsBy(How = How.XPath, Using = "//button[text()='Next']")]
+        public IWebElement NextBtn { get; set; }
+
+        [FindsBy(How = How.Id, Using = "prevButton")]
+        public IWebElement PrevBtn { get; set; }
+
         #endregion
 
         #region Property
@@ -84,11 +90,19 @@ namespace SummerOutreach.BaseClasses
 
         public By GetLocatorOfWebElement(string elementName)
         {
-            var T = GetClassType();
-            var field = T.GetProperty(elementName, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
-            var cusAttri = field.GetCustomAttribute(typeof(FindsByAttribute));
-            var ele = (FindsByAttribute)cusAttri;
-            return GetElementLocator(ele.How, ele.Using);
+            try
+            {
+                var T = GetClassType();
+                var field = T.GetProperty(elementName, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+                var cusAttri = field.GetCustomAttribute(typeof(FindsByAttribute));
+                var ele = (FindsByAttribute)cusAttri;
+                return GetElementLocator(ele.How, ele.Using);
+            }
+            catch (ArgumentNullException)
+            {
+                throw new ArgumentNullException(elementName + " Not Found ");
+            }
+            
         }
 
         public virtual Type GetClassType()

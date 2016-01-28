@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>Rahul Singh Rathore</authors>
+    <owners>Rahul Singh Rathore</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Common Helper for Selenium WebDriver</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2016</copyright>
+    <tags></tags>
+  </metadata>
+</package>

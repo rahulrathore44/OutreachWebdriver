@@ -16,19 +16,20 @@ namespace Common.Helpers.ComponentHelper
     {
         #region Field
 
-        private static string MaskXpath = "//span[text()='Loading...']";
+        private static string maskXpath = "//span[text()='Loading...']";
+        private static string ajaxLoader = "//img[@id='ajaxLoader' and contains(@style,'inline')]";
 
         #endregion
 
         #region Private
 
-        private static Func<IWebDriver, bool> MaskPresence()
+        private static Func<IWebDriver, bool> MaskPresence(string path)
         {
             return ((x) =>
             {
-                if (x.FindElements((By.XPath(MaskXpath))).Any())
-                    return true;
-                return false;
+                if (x.FindElements((By.XPath(path))).Any())
+                    return false;
+                return true;
             });
         }
 
@@ -51,11 +52,18 @@ namespace Common.Helpers.ComponentHelper
         {
             ObjectRepository.Driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(1));
             var wait = GetWebDriverWait(60);
-            wait.Until(MaskPresence());
+            wait.Until(MaskPresence(maskXpath));
             ObjectRepository.Driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(ObjectRepository.Config.GetElementLoadTimeOut()));
         }
 
-      
+        public static void WaitForAjaxLoader()
+        {
+            ObjectRepository.Driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(1));
+            var wait = GetWebDriverWait(60);
+            wait.Until(MaskPresence(ajaxLoader));
+            ObjectRepository.Driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(ObjectRepository.Config.GetElementLoadTimeOut()));
+        }
+
 
         public static WebDriverWait GetWebDriverWait(int timeOutInSeconds)
         {
