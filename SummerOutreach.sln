@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Helpers", "Common.He
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CFM.Registration", "CFM.Registration\CFM.Registration.csproj", "{4921D885-85E6-4CF2-9AC6-BE434D16382C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cross.Examine", "Cross.Examine\Cross.Examine.csproj", "{425849BA-5511-4C43-9BDF-4E97EE6E46E1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{64F35711-DA8A-47E8-AF63-E990F8BF559A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,8 +31,15 @@ Global
 		{4921D885-85E6-4CF2-9AC6-BE434D16382C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4921D885-85E6-4CF2-9AC6-BE434D16382C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4921D885-85E6-4CF2-9AC6-BE434D16382C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{425849BA-5511-4C43-9BDF-4E97EE6E46E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{425849BA-5511-4C43-9BDF-4E97EE6E46E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{425849BA-5511-4C43-9BDF-4E97EE6E46E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{425849BA-5511-4C43-9BDF-4E97EE6E46E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{967305F0-B41B-4EA7-80A1-CD7E774B3D05} = {64F35711-DA8A-47E8-AF63-E990F8BF559A}
 	EndGlobalSection
 EndGlobal

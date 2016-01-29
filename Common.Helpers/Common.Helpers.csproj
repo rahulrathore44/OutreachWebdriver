@@ -80,6 +80,7 @@
     <Compile Include="ComponentHelper\DropDownHelper.cs" />
     <Compile Include="ComponentHelper\GenericHelper.cs" />
     <Compile Include="ComponentHelper\JavaScriptExecutorHelper.cs" />
+    <Compile Include="ComponentHelper\NavigationalHelper.cs" />
     <Compile Include="ComponentHelper\TextBoxHelper.cs" />
     <Compile Include="ComponentHelper\ValidationHelper.cs" />
     <Compile Include="Configuration\AppConfigReader.cs" />
