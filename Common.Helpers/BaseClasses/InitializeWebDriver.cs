@@ -18,69 +18,71 @@ using OpenQA.Selenium.PhantomJS;
 namespace Common.Helpers.BaseClasses
 {
     [TestClass]
-    public class InitializeWebDriver
+    public class InitializeWebDriver : DeployResources
     {
 
         private static FirefoxProfile GetFirefoxptions()
         {
-            FirefoxProfile profile = new FirefoxProfile();
+            var profile = new FirefoxProfile();
             profile.AddExtension(@"C:\downloads\FirefoxGoogleAnalytics.xpi");
             return profile;
         }
         private static ChromeOptions GetChromeOptions()
         {
-            ChromeOptions option = new ChromeOptions();
+            var option = new ChromeOptions();
             option.AddArgument("start-maximized");
             option.AddExtension(@"C:\downloads\GoogleAnalytics.crx");
             option.Proxy = null;
             return option;
         }
 
-        private static InternetExplorerOptions GetIEOptions()
+        private static InternetExplorerOptions GetIeOptions()
         {
-            InternetExplorerOptions options = new InternetExplorerOptions();
-            options.IntroduceInstabilityByIgnoringProtectedModeSettings = true;
-            options.EnsureCleanSession = true;
-            options.ElementScrollBehavior = InternetExplorerElementScrollBehavior.Bottom;
+            var options = new InternetExplorerOptions
+            {
+                IntroduceInstabilityByIgnoringProtectedModeSettings = true,
+                EnsureCleanSession = true,
+                ElementScrollBehavior = InternetExplorerElementScrollBehavior.Bottom
+            };
             return options;
         }
 
 
         private static FirefoxDriver GetFirefoxDriver()
         {
-            FirefoxDriver driver = new FirefoxDriver(GetFirefoxptions());
+            var driver = new FirefoxDriver(GetFirefoxptions());
             return driver;
         }
 
         private static ChromeDriver GetChromeDriver()
         {
-            ChromeDriver driver = new ChromeDriver(GetChromeOptions());
+            var driver = new ChromeDriver(GetChromeOptions());
             return driver;
         }
 
-        private static InternetExplorerDriver GetIEDriver()
+        private static InternetExplorerDriver GetIeDriver()
         {
-            InternetExplorerDriver driver = new InternetExplorerDriver(GetIEOptions());
+            var driver = new InternetExplorerDriver(GetIeOptions());
             return driver;
         }
 
         private static PhantomJSDriver GetPhantomJsDriver()
         {
-            PhantomJSDriver driver = new PhantomJSDriver(GetPhantomJsptions());
+            var driver = new PhantomJSDriver(GetPhantomJsptions());
 
             return driver;
         }
 
         private static PhantomJSOptions GetPhantomJsptions()
         {
-            PhantomJSOptions option = new PhantomJSOptions();
+            var option = new PhantomJSOptions();
             option.AddAdditionalCapability("handlesAlerts", true);
             return option;
         }
 
         private static PhantomJSDriverService GetPhantomJsDrvierService()
         {
-            PhantomJSDriverService service = PhantomJSDriverService.CreateDefaultService();
+            var service = PhantomJSDriverService.CreateDefaultService();
             service.LogFile = "TestPhantomJS.log";
             service.HideCommandPromptWindow = false;
             service.LoadImages = true;
@@ -104,7 +106,7 @@ namespace Common.Helpers.BaseClasses
                     break;
 
                 case BrowserType.InternetExplorer:
-                    ObjectRepository.Driver = GetIEDriver();
+                    ObjectRepository.Driver = GetIeDriver();
                     break;
 
                 case BrowserType.PhantomJs:

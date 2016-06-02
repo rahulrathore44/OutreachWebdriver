@@ -15,11 +15,11 @@ namespace SummerOutreach.TestCases.PersonalPage
     [TestClass]
     public class Class2 : InitializeWebDriver
     {
-       // [Ignore]
+        [Ignore]
         [TestMethod]
         public void TestExcel()
         {
-            string path = @"C:\downloads\SummerOutreachTestData.xlsx";
+            string path = @"C:\downloads\SOTestData.xlsx";
             var lPage = new LoginPageClass(ObjectRepository.Driver);
             DataEngine.ExecuteScript(lPage,path, "Data");
             var pPage = new PersonalPageClass(ObjectRepository.Driver);

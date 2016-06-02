@@ -21,6 +21,7 @@ namespace Cross.Examine.TestCases
         {
             NavigationalHelper.NavigateToUrl(ObjectRepository.Config.GetWebsite() + Properties.Settings.Default.GSBSAlumnis);
             var dPage = new DemographicPageClass(ObjectRepository.Driver);
+            Console.WriteLine(dPage.NextBtn.ToString());
             dPage.NextBtn.Click();
             dPage.SelectProfessionalSuffix("ACNP", "ACNP-BC", "BA", "CHCA");
         }

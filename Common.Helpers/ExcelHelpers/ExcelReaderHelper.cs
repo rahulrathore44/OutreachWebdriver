@@ -15,7 +15,6 @@ namespace Common.Helpers.ExcelHelpers
         #region Fields
 
         private readonly static IDictionary<string, ExcelWorksheet> _cache;
-        private static FileInfo _fileInfo;
         private static ExcelPackage _package;
         private static ExcelWorksheet _excelWorksheet;
 
@@ -32,6 +31,14 @@ namespace Common.Helpers.ExcelHelpers
         #endregion
 
         #region Private
+
+        private static ExcelPackage GetExcelPackageObject(FileInfo info)
+        {
+            if(!info.Exists)
+                throw new FileNotFoundException(string.Format("File not found @{0}", info.Name));
+            return new ExcelPackage(info);
+        }
+
         private static ExcelWorksheet GetExcelReader(string xlPath, string sheetName)
         {
             if (_cache.ContainsKey(sheetName))
@@ -40,8 +47,7 @@ namespace Common.Helpers.ExcelHelpers
             }
             else
             {
-                _fileInfo = new FileInfo(xlPath);
-                _package = new ExcelPackage(_fileInfo);
+                _package = GetExcelPackageObject(new FileInfo(xlPath));
                 _excelWorksheet = _package.Workbook.Worksheets[sheetName];
                 _cache.Add(sheetName, _excelWorksheet);
             }
@@ -57,6 +63,12 @@ namespace Common.Helpers.ExcelHelpers
         {
             var reader = GetExcelReader(xlPath, sheetName);
             return reader.Cells.Count();
+        }
+
+        public static int GetTotalSheets(string xlPath)
+        {
+            var package = GetExcelPackageObject(new FileInfo(xlPath));
+            return package.Workbook.Worksheets.Count;
         }
 
         public static string GetCellValue(string xlPath, string sheetName, int row, int column)
