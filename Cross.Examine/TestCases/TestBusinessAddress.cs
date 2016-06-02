@@ -22,7 +22,7 @@ namespace Cross.Examine.TestCases
         {
             NavigationalHelper.NavigateToUrl(ObjectRepository.Config.GetWebsite() + Properties.Settings.Default.GSBSAlumnis);
             var dPage = new DemographicPageClass(ObjectRepository.Driver);
-            dPage.Email.SendKeyIfEmpty("abc@gmail.com");>>>>>>> origin/master
+            dPage.Email.SendKeyIfEmpty("abc@gmail.com");
             dPage.NextBtn.Click();
             dPage.SelectProfessionalSuffix("ACNP", "ACNP-BC", "BA", "CHCA");
         }
