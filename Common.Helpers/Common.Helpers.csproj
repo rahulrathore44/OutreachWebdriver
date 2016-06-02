@@ -91,6 +91,7 @@
     <Compile Include="ExcelHelpers\ExcelReaderHelper.cs" />
     <Compile Include="ExtensionClass\JavaScriptExtensionClass.cs" />
     <Compile Include="ExtensionClass\ScreenShotExtensionClass.cs" />
+    <Compile Include="ExtensionClass\WebElementExtensionClass.cs" />
     <Compile Include="Interfaces\IConfig.cs" />
     <Compile Include="Interfaces\IPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
