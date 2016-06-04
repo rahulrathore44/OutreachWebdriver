@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -121,6 +123,20 @@ namespace SummerOutreach.BaseClasses
             }
             return lPage;
 
+        }
+
+        public void FileUpload(string fileName)
+        {
+            var infor = new ProcessStartInfo()
+            {
+                FileName = "FileUpload.exe",
+                Arguments = "\"" + Directory.GetCurrentDirectory() + "\\" + fileName + "\""
+            };
+
+            using (var process = Process.Start(infor))
+            {
+                process.WaitForExit();
+            }
         }
     }
 

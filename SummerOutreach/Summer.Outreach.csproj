@@ -83,7 +83,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="TestCases\PersonalPage\Class2.cs" />
+    <Compile Include="TestCases\PersonalPage\ExcelWithPom.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestCases\PersonalPage\TestValidateDateOfBirth.cs" />
   </ItemGroup>

@@ -59,6 +59,12 @@ namespace Common.Helpers.ExcelHelpers
 
         #region Public
 
+        public static List<string> GetAllSheetName(string xlPath)
+        {
+            var package = GetExcelPackageObject(new FileInfo(xlPath));
+            return package.Workbook.Worksheets.Select((worksheet => worksheet.Name)).ToList();
+        }
+
         public static int GetTotalRows(string xlPath, string sheetName)
         {
             var reader = GetExcelReader(xlPath, sheetName);

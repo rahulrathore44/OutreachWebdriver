@@ -71,7 +71,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="TestCases\Class1.cs" />
+    <Compile Include="TestCases\TestProgramWithData.cs" />
     <Compile Include="TestCases\ManagePrgDates\TestManagePrgDates.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -81,13 +81,18 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Resources\CFMOasisRegistrationTestData.xlsx">
+    <None Include="Resources\LOR Form for SEP.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestDataFile\CFMOasisRegistrationTestData.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

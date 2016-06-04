@@ -67,8 +67,10 @@ namespace Common.Helpers.ComponentHelper
 
         public static WebDriverWait GetWebDriverWait(int timeOutInSeconds)
         {
-            var wait = new WebDriverWait(ObjectRepository.Driver, TimeSpan.FromSeconds(timeOutInSeconds));
-            wait.PollingInterval = TimeSpan.FromMilliseconds(250);
+            var wait = new WebDriverWait(ObjectRepository.Driver, TimeSpan.FromSeconds(timeOutInSeconds))
+            {
+                PollingInterval = TimeSpan.FromMilliseconds(250)
+            };
             wait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotVisibleException));
             return wait;
 
@@ -137,6 +139,12 @@ namespace Common.Helpers.ComponentHelper
         public static IWebElement WaitForElement(By locator)
         {
             var wait = GetWebDriverWait(60);
+            return wait.Until(ExpectedConditions.ElementExists(locator));
+        }
+
+        public static IWebElement WaitForElement(By locator,int timeout)
+        {
+            var wait = GetWebDriverWait(timeout);
             return wait.Until(ExpectedConditions.ElementExists(locator));
         }
 

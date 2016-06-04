@@ -45,6 +45,12 @@ namespace Common.Helpers.ComponentHelper
             _select.SelectByText(text);
         }
 
+        public static void SelectByIndex(By locator,int index)
+        {
+            _select = new SelectElement(GenericHelper.GetElement(locator));
+            _select.SelectByIndex(index);
+        }
+
         public static void SelectByVisibleText(IWebElement element, string text)
         {
             _select = new SelectElement(element);

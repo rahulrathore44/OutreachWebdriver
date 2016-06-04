@@ -14,5 +14,8 @@ namespace Common.Helpers.Interfaces
         string Title { get; }
 
         By GetLocatorOfWebElement(string elementName);
+
+        void FileUpload(string fileName);
+
     }
 }
